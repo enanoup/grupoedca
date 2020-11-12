@@ -1,0 +1,513 @@
+<app-header (seleccionMenu)="recibeSeleccion( $event )"></app-header>
+<!-- SLIDER START
+            ============================================= -->
+<section id="slider" class="flexslider-wrap fullscreen clearfix" #home>
+    <div class="flexslider clearfix">
+        <ul class="slides">
+
+            <li data-thumb="assets/img/content/slider/slide-sm-3.jpg">
+                <img class="img-fixed" src="assets/img/content/slider/slide-lg-3.jpg" alt="" />
+                <div class="slider-text-wrap vertical-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="slider-text wow fadeIn" data-wow-delay="0.5s">
+                                    <h1 class="wow fadeInLeft" data-wow-delay="1s">Bienvenido a <br> Grupo EDCA</h1>
+                                    <p class="wow fadeIn" data-wow-delay="1.5s">Nuestro compromiso es contigo.</p>
+
+                                    <a routerLink="" (click)="onClickButtons( 'servicios' )" class="button-normal yellow wow fadeIn" data-wow-delay="2.5s">Conoce más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li data-thumb="assets/img/content/slider/slide-sm-2.jpg">
+                <img class="img-fixed" src="assets/img/content/slider/slide-lg-2.jpg" alt="" />
+                <div class="slider-text-wrap vertical-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="slider-text wow fadeIn" data-wow-delay="0.5s">
+                                    <h2 class="wow fadeInLeft" data-wow-delay="1s">Expertos en Áreas <br> Comerciales</h2>
+                                    <p class="wow fadeIn" data-wow-delay="1.5s">Añade valor agregado a tu inmueble y aumenta su plusvalía.</p>
+                                    <a routerLink="" (click)="onClickButtons( 'contacto' )" class="button-normal yellow wow fadeIn" data-wow-delay="2.5s">Contáctanos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li data-thumb="assets/img/content/slider/slide-sm-1.jpg">
+                <img class="img-fixed" src="assets/img/content/slider/slide-lg-1.jpg" alt="" />
+                <div class="slider-text-wrap vertical-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="slider-text wow fadeIn" data-wow-delay="0.5s">
+                                    <h2 class="wow fadeInLeft" data-wow-delay="1s">Seguridad <br> para Todos</h2>
+                                    <p class="wow fadeIn" data-wow-delay="1.5s">Controles y señales para tu tranquilidad.</p>
+                                    <a routerLink="" (click)="onClickButtons( 'servicios' )" class="button-normal yellow wow fadeIn" data-wow-delay="2.5s">Conoce más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li data-thumb="assets/img/content/slider/slide-sm-4.jpg">
+                <img class="img-fixed" src="assets/img/content/slider/slide-lg-4.jpg" alt="" />
+                <div class="slider-text-wrap vertical-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="slider-text wow fadeIn" data-wow-delay="0.5s">
+                                    <h2 class="wow fadeInLeft" data-wow-delay="1s">Nuestra experiencia a tu servicio</h2>
+                                    <p class="wow fadeIn" data-wow-delay="1.5s">Siempre con respeto, honestidad y confianza.</p>
+
+                                    <a routerLink="" (click)="onClickButtons( 'contacto' )" class="button-normal yellow wow fadeIn" data-wow-delay="2.5s">Contáctanos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li data-thumb="assets/img/content/slider/slide-sm-5.jpg">
+                <img class="img-fixed" src="assets/img/content/slider/slide-lg-5.jpg" alt="" />
+                <div class="slider-text-wrap vertical-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="slider-text wow fadeIn" data-wow-delay="0.5s">
+                                    <h2 class="wow fadeInLeft" data-wow-delay="1s">Soluciones que mejoran tu negocio</h2>
+                                    <p class="wow fadeIn" data-wow-delay="1.5s">Conócenos y descubre por qué nos prefieren.</p>
+
+                                    <a routerLink="" (click)="onClickButtons( 'servicios' )" class="button-normal yellow wow fadeIn" data-wow-delay="2.5s">Conoce más..</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slider-text-wrap vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+
+                <div class="slider-form col-md-4 wow fadeIn text-center" data-wow-delay="0.5s" style="z-index: 10 !important;">
+                    <div class="form-wrap">
+                        <div class="form-appointment">
+                            <form [formGroup]="contactForm1" (ngSubmit)="formSubmit(contactForm1.value)" method="post">
+                                <input type="text" formControlName="nombre" name="name" id="name" placeholder="Nombre" />
+                                <div *ngIf="contactForm1.controls['nombre'].invalid && contactForm1.controls['nombre'].touched" class="alert alert-danger">
+                                    <div *ngIf="contactForm1.controls['nombre'].errors.required">
+                                        Nombre es requerido.
+                                    </div>
+                                    <div *ngIf="contactForm1.controls['nombre'].errors.maxlength">
+                                        Has excedido el tamaño.
+                                    </div>
+                                </div>
+                                <input type="text" formControlName="email" name="email" id="email" placeholder="Email" />
+                                <div *ngIf="contactForm1.controls['email'].invalid && contactForm1.controls['email'].touched" class="alert alert-danger">
+                                    <div *ngIf="contactForm1.controls['email'].errors.required">
+                                        Email es requerido.
+                                    </div>
+                                    <div *ngIf="contactForm1.controls['email'].errors.email">
+                                        Email debe tener formato válido.
+                                    </div>
+                                </div>
+                                <input type="text" formControlName="whatsapp" name="phone" placeholder="Whatsapp">
+                                <div *ngIf="contactForm1.controls['whatsapp'].invalid && contactForm1.controls['whatsapp'].touched" class="alert alert-danger">
+                                    <div *ngIf="contactForm1.controls['whatsapp'].errors.required">
+                                        Whatsapp es requerido.
+                                    </div>
+                                </div>
+
+                                <textarea name="message" formControlName="mensaje" id="message" cols="10" rows="2" placeholder="Mensaje"></textarea>
+                                <div *ngIf="contactForm1.controls['mensaje'].invalid && contactForm1.controls['mensaje'].touched" class="alert alert-danger">
+                                    <div *ngIf="contactForm1.controls['mensaje'].errors.required">
+                                        Mensaje es requerido.
+                                    </div>
+                                </div>
+
+                                <button [disabled]="!contactForm1.valid" onclick="gtag_report_conversion();" class="button-normal yellow">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDER END -->
+
+<!-- CONTENT START
+            ============================================= -->
+<section id="content" class="homepage clearfix" #nosotros>
+
+    <!-- QUIENES SOMOS START
+                ============================================= -->
+    <div class="facilities clearfix">
+
+        <div class="facilities-detail wrapper">
+            <div class="title text-center wow fadeIn" data-wow-delay="0.6s">
+                <br>
+                <h2>Bienvenido a Grupo EDCA</h2>
+            </div>
+
+            <div class="facilities-content wow fadeIn" data-wow-delay="0.6s">
+                <p class="intro text-center">
+                    Somos una empresa dedicada a dar Soluciones Integrales de Aministración y Mantenimiento de <b>Espacios Comerciales, Casa Habitación y Condominios.</b>
+                </p>
+                <div class="facilities-item">
+                    <h3>Nuestro Objetivo:</h3>
+                    <p>Conservar y mejorar el funcionamiento de cada inmueble o establecimiento contribuyendo en el incremento de su plusvalía.</p>
+                </div>
+
+                <div class="facilities-item">
+                    <h3>Experiencia:</h3>
+                    <p>Más de 20 años en la prestación de servicios condominales y comerciales, siempre con el enfoque de servicio y la satisfacción de nuestros clientes.</p>
+                </div>
+
+                <div class="facilities-item">
+                    <h3>Servicios:</h3>
+                    <p>Uso residencial, comercial o mixto, régimen de propiedad, copropiedad, multipropiedad y fraccional.</p>
+                </div>
+
+                <div class="facilities-item">
+                    <h3>Certificaciones:</h3>
+                    <p>Contamos con certificaciones de la Procuraduría Social de la CDMX (PROSOC) y de grupo CECACL.</p>
+                </div>
+
+            </div>
+
+            <a routerLink="" (click)="onClickButtons( 'contacto' )" class="button-normal button-center yellow">Contáctanos</a>
+        </div>
+
+    </div>
+
+    <!-- FACILITIES END -->
+
+    <!-- FEATURES START
+                ============================================= -->
+    <div class="features wrapper clearfix" style="border-bottom: solid #DADADA 1px;" #servicios>
+
+        <div class="container">
+            <div class="title text-center wow fadeIn">
+                <!--p class="subtitle">Somos especialistas en la Administración de Condominios con <br>más de <strong>20 AÑOS DE EXPERIENCIA</strong></p-->
+                <h2> Nuestros Servicios</h2>
+            </div>
+
+            <div class="row features-list funciones-section justify-content-center">
+
+                <div class="features-item col-md-3 wow fadeIn text-center image servicios-css" data-wow-delay="0.3s">
+                    <a (click)="openModal('icon-1')">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Contabilidad y Finanzas</h3>
+                    </a>
+                    <!--p>2500</p-->
+                </div>
+
+                <div class="features-item col-md-3 wow fadeIn text-center image servicios-css" data-wow-delay="0.6s">
+                    <a (click)="openModal('icon-2')">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Asesoría Legal</h3>
+                    </a>
+
+                    <!--p>2500</p-->
+                </div>
+
+                <div class="features-item col-md-3 wow fadeIn text-center image servicios-css" data-wow-delay="0.9s">
+                    <a (click)="openModal('icon-3')">
+                        <i class="fas fa-tools"></i>
+                        <h3>Operación y Mantenimiento</h3>
+                    </a>
+                    <!--p>2500</p-->
+                </div>
+
+                <div class="features-item col-md-3 wow fadeIn text-center image servicios-css" data-wow-delay="1.2s">
+                    <a (click)="openModal('icon-4')">
+                        <i class="fas fa-users"></i>
+                        <h3>Capital Humano</h3>
+                    </a>
+                    <!--p>2500</p-->
+                </div>
+
+
+            </div>
+
+            <!-- The Modal -->
+            <div *ngFor="let modal of modals" id="{{modal.id}}" class="modal-funcion">
+                <!-- Modal content -->
+                <div class="modal-content-funcion animated">
+                    <div class="row">
+                        <div class="col-10 pb-0" style="color: #2A9541;">
+                            <h3><strong>{{modal.title}}</strong></h3>
+                        </div>
+                        <div class="col-2 mt-2">
+                            <span class="close" (click)="closeModal()">&times;</span>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngFor="let funcionalidad of modal.funcionalidades">
+                        <div class="col-12">
+                            <hr class="horizontal-funcionalidad">
+                            <p class="pt-2" style="margin: 0 !important; padding: 6px;">- {{funcionalidad}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- FEATURES END -->
+
+</section>
+<!-- CONTENT END -->
+
+<!-- CONTENT START
+            ============================================= -->
+<section id="content" class="clearfix">
+
+    <!-- ROOM DETAIL START
+                ============================================= -->
+    <div class="room-detail-wrap wrapper clearfix">
+        <div class="container">
+            <div class="row">
+
+                <div class="room-slider col-md-6">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="assets/img/content/roomdetail/1.jpg" alt="" />
+                            </li>
+                            <li>
+                                <img src="assets/img/content/roomdetail/2.jpg" alt="" />
+                            </li>
+                            <li>
+                                <img src="assets/img/content/roomdetail/3.jpg" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="room-detail col-md-6">
+                    <h2>¿Por qué con nosotros?</h2>
+                    <p>En Grupo EDCA estamos listos para brindarte lo mejor.</p>
+                    <ul>
+                        <li><i class="icon icon-check-box"></i>Metodología de Trabajo Única</li>
+                        <li><i class="icon icon-check-box"></i>Herramientas de Tecnología en Seguimiento </li>
+                        <li><i class="icon icon-check-box"></i>Selección de Personal Eficiente</li>
+                        <li><i class="icon icon-check-box"></i>Controles Sanitarios y Seguridad</li>
+                    </ul>
+                    <a routerLink="" (click)="onClickButtons( 'contacto' )" class="button-normal yellow">Conócenos</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ROOM DETAIL END -->
+</section>
+
+<!-- CONTENT START
+            ============================================= -->
+<section id="content" class="homepage clearfix">
+    <!-- QUIENES SOMOS START
+                            ============================================= -->
+    <div class="facilities-2 clearfix">
+
+        <div class="facilities-detail-2 wrapper">
+            <div class="title text-center wow fadeIn" data-wow-delay="0.6s">
+                <h2>Además con Grupo EDCA</h2>
+            </div>
+
+            <div class="facilities-content wow fadeIn" data-wow-delay="0.6s">
+                <p class="intro">Lograrás más con menos gracias a nuestra mejora continua y tendrás beneficios adicionales.</p>
+
+                <div class="facilities-item">
+                    <h3>Optimización</h3>
+                    <p>Reducción de costos con base en planeaciones estratégicas que permitirán mayor rendimiento del presupuesto.</p>
+                </div>
+
+                <div class="facilities-item">
+                    <h3>Valor Comunitario</h3>
+                    <p>Logramos sustancialmente la sana convivencia entre las personas, buenos acuerdos y mejoras continuas.</p>
+                </div>
+
+                <div class="facilities-item">
+                    <h3>Aumento de Plusvalía</h3>
+                    <p>Contribuimos al aumento del valor de tu inmueble ayudando también en el posicionamiento en el mercado.</p>
+                </div>
+
+                <div class="facilities-item">
+                    <h3>Servicio Personalizado</h3>
+                    <p>Nos interesa darte el servicio que tú necesitas, atendiendo a tus peticiones y especificaciones.</p>
+                </div>
+            </div>
+
+            <a routerLink="" (click)="onClickButtons( 'contacto' )" class="button-normal yellow">Inicia Hoy</a>
+        </div>
+    </div>
+    <!-- FACILITIES END -->
+</section>
+
+<!-- CONTENT START
+            ============================================= -->
+<section id="content" class="clearfix" #contacto>
+    <!-- CONTACT FORM START
+                ============================================= -->
+    <div class="contact-form clearfix" id="contacto">
+        <div class="form wow fadeIn">
+            <div class="title text-center">
+                <br>
+                <h2>Contáctanos</h2>
+            </div>
+            <form [formGroup]="contactForm2" (ngSubmit)="formSubmit(contactForm2.value)" method="post">
+                <input type="text" formControlName="nombre" name="name" id="name" placeholder="Nombre" />
+                <div *ngIf="contactForm2.controls['nombre'].invalid && contactForm2.controls['nombre'].touched" class="alert alert-danger">
+                    <div *ngIf="contactForm2.controls['nombre'].errors.required">
+                        Nombre es requerido.
+                    </div>
+                    <div *ngIf="contactForm2.controls['nombre'].errors.maxlength">
+                        Has excedido el tamaño.
+                    </div>
+                </div>
+                <input type="text" formControlName="email" name="email" id="email" placeholder="Email" />
+                <div *ngIf="contactForm2.controls['email'].invalid && contactForm2.controls['email'].touched" class="alert alert-danger">
+                    <div *ngIf="contactForm2.controls['email'].errors.required">
+                        Email es requerido.
+                    </div>
+                    <div *ngIf="contactForm2.controls['email'].errors.email">
+                        Email debe tener formato válido.
+                    </div>
+                </div>
+                <input type="text" formControlName="whatsapp" name="phone" id="phone" placeholder="Whatsapp" />
+                <div *ngIf="contactForm2.controls['whatsapp'].invalid && contactForm2.controls['whatsapp'].touched" class="alert alert-danger">
+                    <div *ngIf="contactForm2.controls['whatsapp'].errors.required">
+                        Whatsapp es requerido.
+                    </div>
+                </div>
+                <textarea name="message" formControlName="mensaje" id="message" cols="45" rows="5" placeholder="Mensaje"></textarea>
+                <div *ngIf="contactForm2.controls['mensaje'].invalid && contactForm2.controls['mensaje'].touched" class="alert alert-danger">
+                    <div *ngIf="contactForm2.controls['mensaje'].errors.required">
+                        Mensaje es requerido.
+                    </div>
+                </div>
+                <button [disabled]="!contactForm2.valid" class="button-normal yellow">Enviar</button>
+            </form>
+        </div>
+
+        <div class="maps wow fadeInRight">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.080566997467!2d-86.82196488506531!3d21.149191785933308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA4JzU3LjEiTiA4NsKwNDknMTEuMiJX!5e0!3m2!1ses!2smx!4v1596598221879!5m2!1ses!2smx"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+    <!-- CONTACT FORM END -->
+
+</section>
+<!-- CONTENT END -->
+
+<div class="modal fade" id="trabajoModal" tabindex="-1" role="dialog" aria-labelledby="trabajoModalLabel" aria-hidden="true" style="background-color: #91be90;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color: #2A9541" id="trabajoModalLabel">Grupo EDCA te busca</h3>
+                <button type="button" class="close" style="top:0px; font-size: 40px; z-index: 999 !important;" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body modal-background">
+
+                <section id="slider-2" class="flexslider-wrap fullscreen clearfix" #home>
+                    <div class="flexslider clearfix">
+                        <ul class="slides">
+                            <li data-thumb="">
+                                <div class="slider-text-form-wrap">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="slider-text-work wow fadeIn" da ta-wow-delay="0.5s">
+                                                    <h3 class="wow fadeInLeft" data-wow-delay="1s">Intégrate a <br>Nuestro equipo</h3>
+                                                    <p class="wow fadeIn" data-wow-delay="1.5s">Déjanos tus datos y sé parte de Grupo EDCA.</p>
+
+                                                    <!--a routerLink="" class="button-normal yellow wow fadeIn" data-wow-delay="2.5s">Conoce más</a-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="slider-text-form-wrap vertical-center-work">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                </div>
+
+                                <div class="slider-form-work col-10 col-md-5 wow fadeIn text-center" data-wow-delay="0.5s" style="z-index: 10 !important;">
+                                    <div class="form-wrap">
+                                        <div class="form-appointment">
+                                            <form method="post" [formGroup]="workForm" (ngSubmit)="formSubmit(workForm.value)">
+                                                <input type="text" formControlName="nombre" name="name" id="name" placeholder="Nombre" />
+                                                <div *ngIf="workForm.controls['nombre'].invalid && workForm.controls['nombre'].touched" class="alert alert-danger">
+                                                    <div *ngIf="workForm.controls['nombre'].errors.required">
+                                                        Nombre es requerido.
+                                                    </div>
+                                                    <div *ngIf="workForm.controls['nombre'].errors.maxlength">
+                                                        Has excedido el tamaño.
+                                                    </div>
+                                                </div>
+                                                <input type="text" formControlName="email" name="email" id="email" placeholder="Email" />
+                                                <div *ngIf="workForm.controls['email'].invalid && workForm.controls['email'].touched" class="alert alert-danger">
+                                                    <div *ngIf="workForm.controls['email'].errors.required">
+                                                        Email es requerido.
+                                                    </div>
+                                                    <div *ngIf="workForm.controls['email'].errors.email">
+                                                        Email debe tener formato válido.
+                                                    </div>
+                                                </div>
+                                                <input type="text" formControlName="whatsapp" name="phone" placeholder="Whatsapp">
+                                                <div *ngIf="workForm.controls['whatsapp'].invalid && workForm.controls['whatsapp'].touched" class="alert alert-danger">
+                                                    <div *ngIf="workForm.controls['whatsapp'].errors.required">
+                                                        Whatsapp es requerido.
+                                                    </div>
+                                                </div>
+
+                                                <textarea name="message" formControlName="mensaje" id="message" cols="10" rows="2" placeholder="Mensaje"></textarea>
+                                                <div *ngIf="workForm.controls['mensaje'].invalid && workForm.controls['mensaje'].touched" class="alert alert-danger">
+                                                    <div *ngIf="workForm.controls['mensaje'].errors.required">
+                                                        Mensaje es requerido.
+                                                    </div>
+                                                </div>
+                                                <button [disabled]="!workForm.valid" onclick="gtag_report_conversion();" class="button-normal yellow">¡Unirme Ya!</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

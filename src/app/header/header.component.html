@@ -1,0 +1,48 @@
+<!-- HEADER
+            ============================================= -->
+<header id="header" class="site-header transparent-header clearfix">
+
+    <div class="header-navigation">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="logo col-10 wow fadeInDown col-md-3" data-wow-delay="1s">
+                    <div class="logo-image">
+                        <a routerLink="/"><img src="assets/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+
+                <!-- MOBILE MENU START
+                                        ============================================= -->
+                <div class="mobile-menu wow fadeInDown col-2" data-wow-delay="1s" style="top: 8px; right: 14px;">
+                    <button id="slide-buttons" class="icon icon-navicon-round"></button>
+                </div>
+
+                <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+                    <button class="c-menu__close icon icon-remove-delete"></button>
+                    <ul class="menus-mobile">
+                        <li><a routerLink="" (click)="onClickMenu('home');">Home</a></li>
+                        <li><a routerLink="" (click)="onClickMenu('nosotros');">Nosotros</a></li>
+                        <li><a routerLink="" (click)="onClickMenu('servicios');">Servicios</a></li>
+                        <li><a routerLink="" (click)="onClickMenu('contacto');">Contacto</a></li>
+                        <li><a routerLink="" data-toggle="modal" data-target="#trabajoModal">¡Únete!</a></li>
+                    </ul>
+                </nav>
+                <div id="slide-overlay" class="slide-overlay"></div>
+                <!-- MOBILE MENU END -->
+
+                <div class="navigation wow fadeInDown col-md-9" data-wow-delay="1s">
+                    <nav id="main-menu" class="menu">
+                        <ul id="menu-top-menu" class="menus">
+                            <li><a routerLink="" (click)="onClickMenu('home');">Home</a></li>
+                            <li><a routerLink="" (click)="onClickMenu('nosotros');">Nosotros</a></li>
+                            <li><a routerLink="" (click)="onClickMenu('servicios');">Servicios</a></li>
+                            <li><a routerLink="" (click)="onClickMenu('contacto');">Contacto</a></li>
+                            <li><a routerLink="" data-toggle="modal" data-target="#trabajoModal">¡Únete!</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER END -->
